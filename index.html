@@ -40,32 +40,45 @@
 
     <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-yellow-500 shadow-lg">
-    <div class="max-w-7xl mx-auto px-2 py-2 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3 py-2 flex items-center justify-between">
         
-        <button onclick="toggleCart()" class="relative p-1">
-            <span id="cart-count" class="absolute -top-0 -right-0 bg-red-600 text-white text-[9px] font-black h-4 w-4 flex items-center justify-center rounded-full">0</span>
-            <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        </button>
-
-        <div class="relative">
-            <button onclick="toggleMenu()" class="text-gray-900 font-black text-xs uppercase flex items-center">
-                Menu ▾
-            </button>
-            <div id="mobile-menu" class="hidden absolute top-full left-1/2 -translate-x-1/2 mt-2 w-40 bg-gray-900 text-white rounded-xl shadow-xl z-50 p-2 font-bold text-[10px] uppercase">
-                <a href="sobrenos.html" class="block py-2 border-b border-gray-700">Quem Somos</a>
-                <a href="manutencao.html" class="block py-2 border-b border-gray-700">Manutenção</a>
-                <a href="serralharia.html" class="block py-2 border-b border-gray-700">Serralharia</a>
-                <a href="elevadores.html" class="block py-2">Elevadores</a>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-1">
-            <div class="text-right leading-none">
-                <h1 class="text-[10px] font-black text-gray-900">KAMBA DA OBRA</h1>
-                <p class="text-[7px] font-bold uppercase tracking-tighter">Manut. & Materiais</p>
-            </div>
+        <div class="flex items-center gap-2">
             <img src="logo_1.png" alt="Logo" class="h-8 w-auto object-contain rounded-lg bg-white p-0.5 scale-[0.6]">
+            <div class="leading-none whitespace-nowrap">
+                <h1 class="text-[10px] sm:text-xs font-black text-gray-900">KAMBA DA OBRA</h1>
+                <p class="text-[7px] sm:text-[9px] font-bold uppercase tracking-tighter">Manut. & Materiais</p>
+            </div>
         </div>
+
+        <nav class="hidden md:flex items-center gap-6 font-black uppercase text-[11px]">
+            <a href="sobrenos.html" class="hover:text-white">Quem Somos</a>
+            <div class="relative group">
+                <button class="hover:text-white flex items-center gap-1">Serviços ▾</button>
+                <div class="absolute left-0 mt-2 w-40 bg-white text-gray-900 rounded-xl shadow-xl hidden group-hover:block z-50">
+                    <a href="manutencao.html" class="block px-4 py-2 hover:bg-yellow-50">Manutenção</a>
+                    <a href="serralharia.html" class="block px-4 py-2 hover:bg-yellow-50">Serralharia</a>
+                    <a href="elevadores.html" class="block px-4 py-2 hover:bg-yellow-50">Elevadores</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex items-center gap-3">
+            <button onclick="toggleCart()" class="relative p-1">
+                <span id="cart-count" class="absolute -top-0 -right-0 bg-red-600 text-white text-[9px] font-black h-4 w-4 flex items-center justify-center rounded-full">0</span>
+                <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </button>
+            
+            <button onclick="toggleMenu()" class="md:hidden p-1 text-gray-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 text-white p-4 font-bold uppercase text-[10px] space-y-3">
+        <a href="sobrenos.html" class="block py-2 border-b border-gray-700">Quem Somos</a>
+        <a href="manutencao.html" class="block py-2 border-b border-gray-700">Manutenção</a>
+        <a href="serralharia.html" class="block py-2 border-b border-gray-700">Serralharia</a>
+        <a href="elevadores.html" class="block py-2">Elevadores</a>
     </div>
 </header>
 
