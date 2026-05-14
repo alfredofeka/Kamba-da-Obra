@@ -34,6 +34,12 @@
 
     </style>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+
 </head>
 
 <body class="bg-gray-100 min-h-screen pb-40">
@@ -281,6 +287,23 @@
         </div>
 
     </div>
+
+
+
+<div id="checkout-form" class="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+    <h2 class="text-xl font-black uppercase mb-6 text-gray-900">Finalizar Pedido</h2>
+    
+    <div class="space-y-4">
+        <input type="text" id="nome" placeholder="Nome Completo" class="w-full p-3 bg-gray-50 rounded-xl border-none">
+        <input type="text" id="nif" placeholder="NIF Pessoal/Empresa" class="w-full p-3 bg-gray-50 rounded-xl border-none">
+        <input type="text" id="local" placeholder="Bairro / Zona de Entrega" class="w-full p-3 bg-gray-50 rounded-xl border-none">
+        <input type="datetime-local" id="data" class="w-full p-3 bg-gray-50 rounded-xl border-none text-gray-500">
+        
+        <button onclick="gerarPDF()" class="w-full bg-yellow-500 text-gray-900 font-black py-4 rounded-xl hover:bg-yellow-400 transition uppercase text-sm">
+            Gerar Nota de Encomenda
+        </button>
+    </div>
+</div>
 
     <script>
 
@@ -1125,6 +1148,33 @@ const products = [
         updateCartUI();
 
     </script>
+
+<script>
+    function gerarPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Recolher dados
+        const nome = document.getElementById('nome').value;
+        const nif = document.getElementById('nif').value;
+        const local = document.getElementById('local').value;
+        const data = document.getElementById('data').value;
+
+        // Construir PDF
+        doc.text("KAMBA DA OBRA - NOTA DE ENCOMENDA", 20, 20);
+        doc.text("Cliente: " + nome, 20, 30);
+        doc.text("NIF: " + nif, 20, 40);
+        doc.text("Local: " + local, 20, 50);
+        doc.text("Data Entrega: " + data, 20, 60);
+
+        // Salvar ficheiro
+        doc.save("Nota_Kamba.pdf");
+
+        // Abrir WhatsApp
+        const msg = `Olá! Acabei de gerar a Nota de Encomenda para ${nome}. Local: ${local}.`;
+        window.open(`https://wa.me/2449XXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
 
 </body>
 </html>
