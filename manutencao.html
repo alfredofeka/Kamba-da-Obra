@@ -19,18 +19,33 @@
             </div>
         </a>
 
-        <nav class="hidden md:flex items-center gap-6 font-black uppercase text-[11px]">
-            <a href="index.html" class="hover:text-white">Loja</a>
-            <a href="sobrenos.html" class="hover:text-white">Quem Somos</a>
-            <div class="relative group">
-                <button class="hover:text-white flex items-center gap-1">Serviços ▾</button>
-                <div class="absolute left-0 mt-2 w-40 bg-white text-gray-900 rounded-xl shadow-xl hidden group-hover:block z-50">
-                    <a href="manutencao.html" class="block px-4 py-2 hover:bg-yellow-50">Manutenção</a>
-                    <a href="serralharia.html" class="block px-4 py-2 hover:bg-yellow-50">Serralharia</a>
-                    <a href="elevadores.html" class="block px-4 py-2 hover:bg-yellow-50">Elevadores</a>
-                </div>
-            </div>
-        </nav>
+     <nav class="hidden md:flex items-center gap-6 font-black uppercase text-[11px]">
+    <a href="index.html" class="hover:text-white">Loja</a>
+    <a href="sobrenos.html" class="hover:text-white">Quem Somos</a>
+    
+    <div class="relative">
+        <button onclick="toggleDesktopSubMenu()" class="hover:text-white flex items-center gap-1 focus:outline-none">
+            Serviços ▾
+        </button>
+        <div id="desktop-submenu" class="absolute left-0 mt-2 w-40 bg-white text-gray-900 rounded-xl shadow-xl hidden z-50">
+            <a href="manutencao.html" class="block px-4 py-2 hover:bg-yellow-50 rounded-t-xl">Manutenção</a>
+            <a href="serralharia.html" class="block px-4 py-2 hover:bg-yellow-50">Serralharia</a>
+            <a href="elevadores.html" class="block px-4 py-2 hover:bg-yellow-50 rounded-b-xl">Elevadores</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Função para abrir/fechar o submenu no computador
+    function toggleDesktopSubMenu() {
+        document.getElementById('desktop-submenu').classList.toggle('hidden');
+    }
+    
+    // Função existente para o menu mobile
+    function toggleMenu() { 
+        document.getElementById('mobile-menu').classList.toggle('hidden'); 
+    }
+</script>
 
         <div class="flex items-center gap-3">
             <a href="https://wa.me/244924433318" class="bg-gray-900 text-yellow-500 px-3 py-1.5 rounded-lg text-[10px] font-black uppercase hover:bg-black transition whitespace-nowrap">
