@@ -1,75 +1,1261 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kamba da Obra</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-    </style>
-</head>
-<body class="bg-gray-100 min-h-screen pb-40">
 
-    <header class="sticky top-0 z-50 bg-yellow-500 shadow-lg">
-        <div class="max-w-7xl mx-auto px-3 py-2 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <h1 class="text-xs font-black text-gray-900">KAMBA DA OBRA</h1>
+    <title>Kamba da Obra</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonte -->
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Inter',sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar{
+            display:none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar{
+            display:none;
+        }
+
+    </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+</head>
+
+<body class="bg-gradient-to-b from-gray-100 to-white min-h-screen pb-40 overflow-x-hidden">
+
+    <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-yellow-500 shadow-lg">
+    <div class="max-w-7xl mx-auto px-3 py-2 flex items-center justify-between">
+        
+        <div class="flex items-center gap-2">
+            <img src="logo_1.png" alt="Logo" class="h-8 w-auto object-contain rounded-lg bg-white p-0.5 scale-[0.6]">
+            <div class="leading-none whitespace-nowrap">
+                <h1 class="text-[10px] sm:text-xs font-black text-gray-900">KAMBA DA OBRA</h1>
+                <p class="text-[7px] sm:text-[9px] font-bold uppercase tracking-tighter">Manut. & Materiais</p>
             </div>
+        </div>
+
+       <nav class="hidden md:flex items-center gap-6 font-black uppercase text-[11px]">
+    <a href="index.html" class="hover:text-white">Loja</a>
+    <a href="sobrenos.html" class="hover:text-white">Quem Somos</a>
+    
+    <div class="relative">
+        <button onclick="toggleDesktopSubMenu()" class="hover:text-white flex items-center gap-1 focus:outline-none">
+            Serviços ▾
+        </button>
+        <div id="desktop-submenu" class="absolute left-0 mt-2 w-40 bg-white text-gray-900 rounded-xl shadow-xl hidden z-50">
+            <a href="manutencao.html" class="block px-4 py-2 hover:bg-yellow-50 rounded-t-xl">Manutenção</a>
+            <a href="serralharia.html" class="block px-4 py-2 hover:bg-yellow-50">Serralharia</a>
+            <a href="elevadores.html" class="block px-4 py-2 hover:bg-yellow-50 rounded-b-xl">Elevadores</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Função para abrir/fechar o submenu no computador
+    function toggleDesktopSubMenu() {
+        document.getElementById('desktop-submenu').classList.toggle('hidden');
+    }
+    
+    // Função existente para o menu mobile
+    function toggleMenu() { 
+        document.getElementById('mobile-menu').classList.toggle('hidden'); 
+    }
+</script>
+
+        <div class="flex items-center gap-3">
             <button onclick="toggleCart()" class="relative p-1">
                 <span id="cart-count" class="absolute -top-0 -right-0 bg-red-600 text-white text-[9px] font-black h-4 w-4 flex items-center justify-center rounded-full">0</span>
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </button>
+            
+            <button onclick="toggleMenu()" class="md:hidden p-1 text-gray-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
-    </header>
+    </div>
 
-    <main id="product-grid" class="max-w-7xl mx-auto p-4 grid grid-cols-2 gap-4"></main>
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 text-white p-4 font-bold uppercase text-[10px] space-y-3">
+        <a href="sobrenos.html" class="block py-2 border-b border-gray-700">Quem Somos</a>
+        <a href="manutencao.html" class="block py-2 border-b border-gray-700">Manutenção</a>
+        <a href="serralharia.html" class="block py-2 border-b border-gray-700">Serralharia</a>
+        <a href="elevadores.html" class="block py-2">Elevadores</a>
+    </div>
+</header>
 
-    <section id="checkout-section" class="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100 mt-10">
-        <h2 class="text-xl font-black uppercase mb-6">Finalizar Pedido</h2>
-        <div class="space-y-4">
-            <input type="text" id="nome" placeholder="Nome Completo" class="w-full p-3 bg-gray-50 rounded-xl">
-            <input type="text" id="nif" placeholder="NIF" class="w-full p-3 bg-gray-50 rounded-xl">
-            <input type="text" id="local" placeholder="Zona de Entrega" class="w-full p-3 bg-gray-50 rounded-xl">
-            <button onclick="gerarPDF()" class="w-full bg-yellow-500 py-4 rounded-xl font-black">GERAR NOTA E ENVIAR</button>
+<script>
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+</script>
+    <!-- HERO -->
+    <section class="bg-gray-900 text-white rounded-b-3xl shadow-xl">
+
+        <div class="max-w-7xl mx-auto px-4 py-8">
+
+            <span class="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-xs font-black">
+                MATERIAL PROFISSIONAL
+            </span>
+
+            <h2 class="text-3xl sm:text-5xl font-black mt-4 mb-3 leading-tight text-yellow-400">
+                Tudo para tua Obra
+            </h2>
+
+            <p class="text-sm sm:text-lg text-gray-200 max-w-2xl">
+                Ferramentas, elétrica, serralharia, construção civil e manutenção profissional.
+            </p>
+
         </div>
+
     </section>
 
+    <!-- BANNER DINÂMICO -->
+    <section class="max-w-7xl mx-auto px-4 mt-5">
+
+        <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+
+            <div
+                id="banner-slider"
+                class="flex transition-transform duration-700 ease-in-out"
+            ></div>
+
+            <!-- DOTS -->
+            <div
+                id="banner-dots"
+                class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"
+            ></div>
+
+        </div>
+
+    </section>
+
+    <!-- PESQUISA -->
+    <section class="max-w-7xl mx-auto px-4 mt-5">
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+
+            <!-- PESQUISA -->
+            <input
+                id="search-input"
+                type="text"
+                placeholder="Pesquisar produto..."
+                oninput="filterProducts()"
+                class="w-full p-3 rounded-2xl border border-gray-300 outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+
+            <!-- CATEGORIA -->
+            <select
+                id="category-filter"
+                onchange="filterProducts()"
+                class="w-full p-3 rounded-2xl border border-gray-300 outline-none focus:ring-2 focus:ring-yellow-500"
+            >
+                <option>Todos</option>
+                <option>Serralharia</option>
+                <option>Elétrica</option>
+                <option>Furação</option>
+                <option>Construção</option>
+            </select>
+
+            <!-- STOCK -->
+            <select
+                id="stock-filter"
+                onchange="filterProducts()"
+                class="w-full p-3 rounded-2xl border border-gray-300 outline-none focus:ring-2 focus:ring-yellow-500"
+            >
+                <option value="all">Todos Stocks</option>
+                <option value="available">Em Stock</option>
+                <option value="low">Pouco Stock</option>
+            </select>
+
+            <!-- RESET -->
+            <button
+                onclick="resetFilters()"
+                class="bg-gray-900 hover:bg-black text-white rounded-2xl px-4 py-3 font-black transition-all"
+            >
+                Limpar Filtros
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- GRID PRODUTOS -->
+    <main
+        id="product-grid"
+        class="max-w-7xl mx-auto p-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+    ></main>
+
+    <!-- CARRINHO LATERAL -->
+    <div
+        id="cart-sidebar"
+        class="fixed top-0 right-[-420px] w-[400px] max-w-full h-full bg-white shadow-2xl z-[999] transition-all duration-500 flex flex-col"
+    >
+
+        <!-- HEADER -->
+        <div class="p-5 border-b flex items-center justify-between">
+
+            <h2 class="font-black text-xl">
+                Meu Carrinho
+            </h2>
+
+            <button
+                onclick="toggleCart()"
+                class="text-2xl font-black"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <!-- ITENS -->
+        <div
+            id="cart-items"
+            class="flex-1 overflow-y-auto p-4 space-y-3"
+        ></div>
+
+        <!-- FOOTER -->
+        <div class="border-t p-4">
+
+            <div class="flex items-center justify-between mb-4">
+
+                <span class="font-bold text-gray-500">
+                    Total
+                </span>
+
+                <span
+                    id="cart-total"
+                    class="text-2xl font-black"
+                >
+                    0 Kz
+                </span>
+
+            </div>
+
+            <button
+                onclick="toggleCheckout()"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-black py-4 rounded-2xl"
+            >
+                Checkout Seguro
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div
+        id="overlay"
+        onclick="toggleCart()"
+        class="fixed inset-0 bg-black/50 hidden z-[998]"
+    ></div>
+
+    <!-- BOTTOM BAR -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl z-50">
+
+        <div class="max-w-7xl mx-auto p-4">
+
+            <button
+                onclick="toggleCart()"
+                class="w-full bg-yellow-500 hover:bg-yellow-400 active:scale-95 transition-all text-gray-900 rounded-2xl py-4 font-black"
+            >
+
+                <span id="bottom-total">
+                    Ver Carrinho • 0 Kz
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+<div id="checkout-form" class="fixed inset-x-0 bottom-0 z-[9999] hidden">
+    <div class="absolute inset-0 bg-black/50" onclick="toggleCheckout()"></div>
+
+    <div class="relative bg-white rounded-t-[32px] shadow-2xl p-6 max-h-[90vh] overflow-y-auto animate-slideUp">
+        <div class="max-w-lg mx-auto">
+            <div class="w-14 h-1.5 bg-gray-300 rounded-full mx-auto mb-5"></div>
+
+            <h2 class="text-2xl font-black text-gray-900 mb-1">
+                Finalizar Pedido
+            </h2>
+
+            <p class="text-sm text-gray-500 mb-6">
+                Preencha os dados para gerar a nota e enviar no WhatsApp.
+            </p>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold uppercase text-gray-500">Nome Completo</label>
+                    <input 
+                        type="text" 
+                        id="nome" 
+                        placeholder="Ex: João Manuel" 
+                        class="w-full mt-2 p-4 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-yellow-500 outline-none"
+                    >
+                    <p class="text-xs text-gray-400 mt-1">Mínimo de 2 nomes</p>
+                </div>
+
+                <div>
+                    <label class="text-xs font-bold uppercase text-gray-500">Local de Entrega</label>
+                    <input 
+                        type="text" 
+                        id="local" 
+                        placeholder="Bairro, Província" 
+                        class="w-full mt-2 p-4 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-yellow-500 outline-none"
+                    >
+                </div>
+
+                <div>
+                    <label class="text-xs font-bold uppercase text-gray-500">Data Prevista</label>
+                    <input 
+                        type="date" 
+                        id="data" 
+                        class="w-full mt-2 p-4 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-yellow-500 outline-none text-gray-600"
+                    >
+                </div>
+
+                <button 
+                    onclick="processarPedido()" 
+                    class="w-full bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-black py-4 rounded-2xl transition-all uppercase tracking-wide"
+                >
+                    Gerar PDF + WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.animate-slideUp{
+    animation:slideUp .3s ease;
+}
+</style>
+
+
     <script>
-        // 1. DADOS E CARRINHO
+
+        // WHATSAPP
+        const MY_PHONE = "924433318";
+
+       // PRODUTOS ATUALIZADOS - STOCK DE VENDA RÁPIDA
+const products = [
+    {
+        id: 1,
+        featured: true,
+        name: 'Disco de Corte 4.5"/115',
+        price: 450,
+        category: 'Serralharia',
+        desc: 'Corte de Ferro e Inox; Pequeno',
+        image: 'Pq-nova_era1.png',
+        stock: 22,
+        brand: 'NOVA ERA',
+        model: 'M115-S',
+        material: 'Abrasivo Reforçado',
+        warranty: 'R.P.M. 13300'
+    },
+    // --- NOVOS ITENS DE MATERIAL ELÉTRICO (DAS TUAS FOTOS) ---
+    {
+        id: 2,
+        featured: true,
+        name: 'Casquilho de Porcelana E27',
+        price: 350,
+        category: 'Elétrica',
+        desc: 'Suporte para lâmpada com alta resistência térmica',
+        image: 'ITEM-013.jpeg', // Referência à sua foto lateral
+        stock: 15,
+        brand: 'Standard',
+        model: 'E27 Industrial',
+        material: 'Cerâmica/Porcelana',
+        warranty: 'Alta Durabilidade'
+    },
+    {
+        id: 3,
+        featured: false,
+        name: 'Casquilho E27 (Vista Interna)',
+        price: 350, 
+        category: 'Elétrica',
+        desc: 'Suporte para lâmpada com alta resistência térmica',
+        image: 'ITEM-011.jpeg', // Referência à sua foto lateral
+        stock: 15,      
+        brand: 'Standard',
+        model: 'E27-Bornes',
+        material: 'Porcelana e Metal',
+        warranty: 'Segurança Garantida'
+    },
+    {
+        id: 4,
+        featured: true,
+        name: 'Interruptor Duplo de Embutir',
+        price: 2500,
+        category: 'Elétrica',
+        desc: 'Comando para dois circuitos de iluminação',
+        image: 'ITEM-012.jpeg', // Referência à sua foto do interruptor
+        stock: 15,
+        brand: 'A.S.R',
+        model: 'Série Classic',
+        material: 'ABS Antichama',
+        warranty: 'Testado 10.000 cliques'
+    },
+     {
+        id: 5,
+        featured: true,
+        name: 'Interruptor Duplo de Embutir',
+        price: 2500,
+        category: 'Elétrica',
+        desc: 'Comando para dois circuitos de iluminação',
+        image: 'ITEM-012.jpeg', // Referência à sua foto do interruptor
+        stock: 15,
+        brand: 'A.S.R',
+        model: 'Série Classic',
+        material: 'ABS Antichama',
+        warranty: 'Testado 10.000 cliques'
+       },
+
+       {
+        id: 6,
+        name: 'Buchas de Expansão com Parafuso 6mm',
+        price: 4500, // Preço sugerido por caixa
+        category: 'Ferragens',
+        desc: 'Conjunto de 50 sets de buchas e parafusos para fixação em alvenaria.',
+        image: 'ITEM-0121.jpeg',
+        stock: 8,
+        brand: 'GRUPO A.S.R',
+        material: 'Nylon e Aço Zincado',
+        model: 'Expand Nails 06MM'
+    },
+    {
+        id: 7,
+        name: 'Caixa de Aparelhagem Universal (Embutir)',
+        price: 450,
+        category: 'Elétrica',
+        desc: 'Caixa plástica para montagem oculta de mecanismos elétricos.',
+        image: 'ITEM-014.jpeg',
+       stock: 25,
+        brand: 'Standard',
+        material: 'PVC Rígido',
+        model: 'Mod. Redondo'
+    },
+    {
+        id: 8,
+        name: 'Ficha Elétrica Macho (Pino Grosso)',
+        price: 750,
+        category: 'Elétrica',
+        desc: 'Ficha com pega ergonómica para reparação e extensão de cabos.',
+        image: 'ITEM-016.jpeg',
+        stock: 14,
+        brand: 'Standard',
+        material: 'Termoplástico',
+        model: '2P+T'
+    },
+    {
+        id: 9,
+        name: 'Tomada Universal de Parede YAWLTAI',
+        price: 2100,
+        category: 'Elétrica',
+        desc: 'Tomada individual de embutir compatível com padrão europeu e universal.',
+        image: 'ITEM-017.jpeg',
+        stock: 22,
+        brand: 'YAWLTAI',
+        material: 'ABS Antichama',
+        model: 'Série YT'
+    },
+    {
+        id: 10,
+        name: 'Fita Isoladora PVC A.S.R',
+        price: 250,
+        category: 'Elétrica',
+        desc: 'Fita para isolamento elétrico de 0.13mm x 18mm x 10yds.',
+        image: 'ITEM-018.jpeg',
+        stock: 18,
+        brand: 'A.S.R',
+        material: 'PVC High Grade',
+        model: 'Electrical Insulaton'
+    },
+    {
+        id: 11,
+        name: 'Abraçadeiras para Tubo VD/Cabo',
+        price: 150, // Preço por unidade ou pack pequeno
+        category: 'Instalação',
+        desc: 'Suportes plásticos para fixação organizada de tubagem ou cablagem.',
+        image: 'ITEM-019.jpeg',
+        stock: 20,
+        brand: 'Standard',
+        material: 'Polipropileno',
+        model: 'Clip Fix'
+    },
+    {
+        id: 12,
+        name: 'Rolo de Pintura Profissional BALAXI',
+        price: 3500,
+        category: 'Pintura',
+        desc: 'Rolo de 9 polegadas (230mm) para tintas à base de água.',
+        image: 'ITEM-021.jpeg',
+        stock: 12,
+        brand: 'BALAXI',
+        material: 'Lã Sintética / Pega Anatómica',
+        model: 'Water Paint Roller'
+    },
+    {
+        id: 13,
+        name: 'Alicate Universal Isolado',
+        price: 4500,
+        category: 'Ferramentas',
+        desc: 'Alicate robusto com cabo isolado para trabalhos elétricos e mecânicos.',
+        image: 'ITEM-0120.jpeg',
+        stock: 4,
+        brand: 'TOMA',
+        material: 'Aço Cromo-Vanádio',
+        model: 'Heavy Duty 8"'
+    },
+
+
+
+    // -------------------------------------------------------
+    {
+        id: 14,
+        featured: true,
+        name: 'Lâmpada LED 12W',
+        price: 1500,
+        category: 'Elétrica',
+        desc: 'Luz Branca (Fria)',
+        image: 'ITEM-0122.jpeg',
+        stock: 4,
+        brand: 'Philips',
+        model: 'Essential LED',
+        material: 'Policarbonato',
+        warranty: '1 Ano'
+    },
+    {
+        id: 15,
+        featured: true,
+        name: 'Broca de Betão 8mm',
+        price: 1200,
+        category: 'Furação',
+        desc: 'Ponta de Widea Profissional',
+        image: 'ITEM-001.jpeg',
+        stock: 13,
+        brand: 'Makita',
+        model: 'SDS-Plus',
+        material: 'Aço Temperado',
+        warranty: 'Alta Durabilidade'
+    }
+];
+
+        // CARRINHO
         let cart = JSON.parse(localStorage.getItem('kamba-cart')) || [];
-        const products = [ /* ... teus produtos aqui ... */ ];
 
-        // 2. FUNÇÕES BASE
-        function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('right-0'); }
-        function saveCart() { localStorage.setItem('kamba-cart', JSON.stringify(cart)); }
+        // BANNER
+        const featuredProducts =
+            products.filter(p => p.featured);
 
-        // 3. GERAR PDF
-        async function gerarPDF() {
+        let currentBanner = 0;
+
+        // RENDER BANNER
+        function renderBanner(){
+
+            const slider =
+                document.getElementById('banner-slider');
+
+            const dots =
+                document.getElementById('banner-dots');
+
+            slider.innerHTML =
+                featuredProducts.map(item => `
+
+                    <div class="min-w-full relative h-[230px] sm:h-[380px]">
+
+                        <img
+                            src="${item.image}"
+                            class="w-full h-full object-cover"
+                        />
+
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/20"></div>
+
+                        <div class="absolute inset-0 flex flex-col justify-center px-6 sm:px-12 text-white">
+
+                            <span class="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full w-fit text-xs font-black mb-3">
+                                PRODUTO EM DESTAQUE
+                            </span>
+
+                            <h2 class="text-2xl sm:text-5xl font-black mb-3 max-w-xl">
+                                ${item.name}
+                            </h2>
+
+                            <p class="text-sm sm:text-lg text-gray-200 max-w-lg mb-5">
+                                ${item.desc}
+                            </p>
+
+                            <div class="flex items-center gap-3">
+
+                                <span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-2xl font-black">
+                                    ${item.price.toLocaleString()} Kz
+                                </span>
+
+                                <button
+                                    onclick="scrollToProducts()"
+                                    class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-black px-5 py-2 rounded-2xl"
+                                >
+                                    Comprar
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `).join('');
+
+            dots.innerHTML =
+                featuredProducts.map((_,index)=>`
+
+                    <button
+                        onclick="goToBanner(${index})"
+                        class="
+                            w-3 h-3 rounded-full transition-all
+                            ${
+                                index === currentBanner
+                                ? 'bg-yellow-400 scale-125'
+                                : 'bg-white/60'
+                            }
+                        "
+                    ></button>
+
+                `).join('');
+
+            updateBanner();
+        }
+
+        function updateBanner(){
+
+            const slider =
+                document.getElementById('banner-slider');
+
+            slider.style.transform =
+                `translateX(-${currentBanner * 100}%)`;
+
+            renderDots();
+        }
+
+        function renderDots(){
+
+            const dots =
+                document.querySelectorAll('#banner-dots button');
+
+            dots.forEach((dot,index)=>{
+
+                dot.className =
+                    `w-3 h-3 rounded-full transition-all ${
+                        index === currentBanner
+                        ? 'bg-yellow-400 scale-125'
+                        : 'bg-white/60'
+                    }`;
+
+            });
+        }
+
+        function goToBanner(index){
+
+            currentBanner = index;
+
+            updateBanner();
+        }
+
+        setInterval(()=>{
+
+            currentBanner++;
+
+            if(currentBanner >= featuredProducts.length){
+
+                currentBanner = 0;
+            }
+
+            updateBanner();
+
+        },4000);
+
+        // RENDER PRODUTOS
+        function renderProducts(items = products){
+
+            const grid =
+                document.getElementById('product-grid');
+
+            if(items.length === 0){
+
+                grid.innerHTML = `
+
+                    <div class="col-span-full text-center py-20 text-gray-500">
+
+                        Nenhum produto encontrado.
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+            grid.innerHTML =
+                items.map(product => `
+
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 flex flex-col hover:shadow-2xl transition-all">
+
+                        <!-- IMAGE -->
+                        <div class="relative aspect-square overflow-hidden bg-gray-100">
+
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                                class="w-full h-full object-cover hover:scale-110 transition-all duration-700"
+                            />
+
+                            <!-- BADGE -->
+                            <div class="absolute top-3 left-3">
+
+                                ${
+                                    product.stock > 10
+
+                                    ? `
+                                        <span class="bg-green-600 text-white text-[10px] px-3 py-1 rounded-full font-black">
+                                            EM STOCK
+                                        </span>
+                                    `
+
+                                    : product.stock > 0
+
+                                    ? `
+                                        <span class="bg-orange-500 text-white text-[10px] px-3 py-1 rounded-full font-black">
+                                            ÚLTIMAS UNIDADES
+                                        </span>
+                                    `
+
+                                    : `
+                                        <span class="bg-red-600 text-white text-[10px] px-3 py-1 rounded-full font-black">
+                                            ESGOTADO
+                                        </span>
+                                    `
+                                }
+
+                            </div>
+
+                        </div>
+
+                        <!-- BODY -->
+                        <div class="p-4 flex flex-col flex-1">
+
+                            <!-- CATEGORY -->
+                            <span class="text-[10px] uppercase font-black text-yellow-600 mb-1">
+                                ${product.category}
+                            </span>
+
+                            <!-- NAME -->
+                            <h3 class="font-black text-sm sm:text-base text-gray-900 leading-tight mb-2">
+                                ${product.name}
+                            </h3>
+
+                            <!-- DESC -->
+                            <p class="text-xs text-gray-500 mb-3">
+                                ${product.desc}
+                            </p>
+
+                            <!-- STOCK -->
+                            <div class="mb-4">
+
+                                <div class="flex items-center justify-between text-xs mb-2">
+
+                                    <span class="text-gray-500">
+                                        Stock
+                                    </span>
+
+                                    <span class="font-black">
+                                        ${product.stock} itens
+                                    </span>
+
+                                </div>
+
+                                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+
+                                    <div
+                                        class="
+                                            h-full rounded-full
+                                            ${
+                                                product.stock > 10
+                                                ? 'bg-green-500'
+                                                : product.stock > 0
+                                                ? 'bg-orange-500'
+                                                : 'bg-red-500'
+                                            }
+                                        "
+                                        style="width:${Math.min(product.stock,100)}%"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- PRICE -->
+                            <div class="text-2xl font-black text-gray-900 mb-3">
+                                ${product.price.toLocaleString()} Kz
+                            </div>
+
+                            <!-- FICHA -->
+                            <button
+                                onclick="toggleSpecs(${product.id})"
+                                class="border border-gray-300 hover:bg-gray-100 text-gray-700 py-3 rounded-2xl text-xs font-black mb-3 transition-all"
+                            >
+                                Ver Ficha Técnica
+                            </button>
+
+                            <!-- DETAILS -->
+                            <div
+                                id="specs-${product.id}"
+                                class="hidden bg-gray-50 border border-gray-200 rounded-2xl p-3 mb-3"
+                            >
+
+                                <h4 class="font-black text-xs mb-2">
+                                    Ficha Técnica
+                                </h4>
+
+                                <ul class="space-y-2 text-xs text-gray-600">
+
+                                    <li>• Marca: ${product.brand}</li>
+                                    <li>• Modelo: ${product.model}</li>
+                                    <li>• Material: ${product.material}</li>
+                                    <li>• Rotação: ${product.warranty}</li>
+
+                                </ul>
+
+                            </div>
+
+                            <!-- BTN -->
+                            <button
+                                onclick="addToCart(${product.id})"
+                                ${
+                                    product.stock <= 0
+                                    ? 'disabled'
+                                    : ''
+                                }
+                                class="
+                                    w-full
+                                    ${
+                                        product.stock <= 0
+                                        ? 'bg-gray-300 cursor-not-allowed'
+                                        : 'bg-yellow-500 hover:bg-yellow-400 active:scale-95'
+                                    }
+                                    transition-all
+                                    text-gray-900
+                                    font-black
+                                    py-3
+                                    rounded-2xl
+                                    text-sm
+                                "
+                            >
+
+                                ${
+                                    product.stock <= 0
+                                    ? 'ESGOTADO'
+                                    : 'ADICIONAR +'
+                                }
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `).join('');
+        }
+
+        // TOGGLE SPECS
+        function toggleSpecs(id){
+
+            const el =
+                document.getElementById(`specs-${id}`);
+
+            el.classList.toggle('hidden');
+        }
+
+        // FILTRO
+        function filterProducts(){
+
+            const search =
+                document.getElementById('search-input')
+                .value
+                .toLowerCase();
+
+            const category =
+                document.getElementById('category-filter')
+                .value;
+
+            const stockFilter =
+                document.getElementById('stock-filter')
+                .value;
+
+            const filtered =
+                products.filter(product => {
+
+                    const searchMatch =
+                        product.name.toLowerCase().includes(search);
+
+                    const categoryMatch =
+                        category === 'Todos'
+                        || product.category === category;
+
+                    let stockMatch = true;
+
+                    if(stockFilter === 'available'){
+
+                        stockMatch = product.stock > 0;
+                    }
+
+                    if(stockFilter === 'low'){
+
+                        stockMatch =
+                            product.stock > 0
+                            && product.stock <= 5;
+                    }
+
+                    return (
+                        searchMatch
+                        && categoryMatch
+                        && stockMatch
+                    );
+                });
+
+            renderProducts(filtered);
+        }
+
+        // RESET
+        function resetFilters(){
+
+            document.getElementById('search-input').value = '';
+
+            document.getElementById('category-filter').value = 'Todos';
+
+            document.getElementById('stock-filter').value = 'all';
+
+            renderProducts();
+        }
+
+        // ADD CART
+        function addToCart(id){
+
+            const product =
+                products.find(p => p.id === id);
+
+            if(product.stock <= 0){
+
+                return;
+            }
+
+            product.stock--;
+
+            const existing =
+                cart.find(item => item.id === id);
+
+            if(existing){
+
+                existing.qty++;
+
+            }else{
+
+                cart.push({
+                    ...product,
+                    qty:1
+                });
+            }
+
+            saveCart();
+
+            renderProducts();
+
+            updateCartUI();
+        }
+
+        // REMOVE
+        function removeFromCart(id){
+
+            const item =
+                cart.find(i => i.id === id);
+
+            if(!item){
+
+                return;
+            }
+
+            const product =
+                products.find(p => p.id === id);
+
+            product.stock++;
+
+            if(item.qty > 1){
+
+                item.qty--;
+
+            }else{
+
+                cart =
+                    cart.filter(i => i.id !== id);
+            }
+
+            saveCart();
+
+            renderProducts();
+
+            updateCartUI();
+        }
+
+        // UPDATE CART
+        function updateCartUI(){
+
+            const cartItems =
+                document.getElementById('cart-items');
+
+            const total =
+                cart.reduce((sum,item)=>
+                    sum + (item.price * item.qty)
+                ,0);
+
+            const count =
+                cart.reduce((sum,item)=>
+                    sum + item.qty
+                ,0);
+
+            document.getElementById('cart-count').innerText = count;
+
+            document.getElementById('cart-total').innerText =
+                `${total.toLocaleString()} Kz`;
+
+            document.getElementById('bottom-total').innerText =
+                `Ver Carrinho • ${total.toLocaleString()} Kz`;
+
+            if(cart.length === 0){
+
+                cartItems.innerHTML = `
+
+                    <div class="text-center text-gray-400 py-20">
+
+                        Carrinho vazio
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+            cartItems.innerHTML =
+                cart.map(item => `
+
+                    <div class="flex gap-3 border rounded-2xl p-3">
+
+                        <img
+                            src="${item.image}"
+                            class="w-20 h-20 rounded-xl object-cover"
+                        />
+
+                        <div class="flex-1">
+
+                            <h4 class="font-black text-sm">
+                                ${item.name}
+                            </h4>
+
+                            <p class="text-xs text-gray-500 mb-2">
+                                ${item.qty}x
+                            </p>
+
+                            <div class="font-black">
+                                ${(item.price * item.qty).toLocaleString()} Kz
+                            </div>
+
+                        </div>
+
+                        <button
+                            onclick="removeFromCart(${item.id})"
+                            class="text-red-600 font-black text-xl"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                `).join('');
+        }
+
+        // TOGGLE CART
+        function toggleCart(){
+
+            const cart =
+                document.getElementById('cart-sidebar');
+
+            const overlay =
+                document.getElementById('overlay');
+
+            if(cart.style.right === '0px'){
+
+                cart.style.right = '-420px';
+
+                overlay.classList.add('hidden');
+
+            }else{
+
+                cart.style.right = '0px';
+
+                overlay.classList.remove('hidden');
+            }
+        }
+
+       // SAVE
+        function saveCart(){
+            localStorage.setItem(
+                'kamba-cart',
+                JSON.stringify(cart)
+            );
+        }
+
+        // WHATSAPP (Original)
+        function sendWhatsApp(){
+            if(cart.length === 0){ alert('Carrinho vazio'); return; }
+            const total = cart.reduce((sum,item)=> sum + (item.price * item.qty), 0);
+            let message = `*NOVO PEDIDO - KAMBA DA OBRA*%0A------------------------%0A`;
+            cart.forEach(item => { message += `• ${item.qty}x ${item.name}%0A`; });
+            message += `------------------------%0A*TOTAL:* ${total.toLocaleString()} Kz%0A%0A_Tudo para tua obra é com o Kamba da Obra._`;
+            window.open(`https://wa.me/${MY_PHONE}?text=${message}`, '_blank');
+        }
+
+        // SCROLL
+        function scrollToProducts(){
+            document.getElementById('product-grid').scrollIntoView({ behavior:'smooth' });
+        }
+
+        
+        // CHECKOUT MODAL
+        function toggleCheckout(){
+
+            const checkout = document.getElementById('checkout-form');
+
+            checkout.classList.toggle('hidden');
+        }
+
+        // VALIDAR NOME
+        function validarNome(nome){
+
+            return nome.trim().split(/\s+/).length >= 2;
+        }
+
+        // PROCESSAR PEDIDO
+        function processarPedido(){
+
+            if(cart.length === 0){
+                alert('Carrinho vazio!');
+                return;
+            }
+
+            const nome = document.getElementById('nome').value.trim();
+            const local = document.getElementById('local').value.trim();
+            const data = document.getElementById('data').value;
+
+            if(!validarNome(nome)){
+                alert('Digite nome completo com mínimo de 2 nomes.');
+                return;
+            }
+
+            if(local.length < 5){
+                alert('Informe Bairro e Província.');
+                return;
+            }
+
+            if(!data){
+                alert('Selecione a data prevista.');
+                return;
+            }
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
-            const nome = document.getElementById('nome').value;
-            doc.text("NOTA DE ENCOMENDA - KAMBA DA OBRA", 20, 20);
-            doc.text("Cliente: " + nome, 20, 30);
-            // ... (adiciona o resto dos campos)
-            
-            doc.save("Nota_Encomenda.pdf");
-            
-            // Enviar WhatsApp
-            const msg = `Olá, fiz uma encomenda. Nome: ${nome}`;
-            window.open(`https://wa.me/924433318?text=${encodeURIComponent(msg)}`, '_blank');
+
+            const total = cart.reduce((sum,item)=> sum + (item.price * item.qty), 0);
+
+            doc.setFontSize(22);
+            doc.text("KAMBA DA OBRA", 20, 20);
+
+            doc.setFontSize(12);
+            doc.text(`Cliente: ${nome}`, 20, 40);
+            doc.text(`Entrega: ${local}`, 20, 50);
+            doc.text(`Data Prevista: ${data}`, 20, 60);
+
+            doc.line(20, 70, 190, 70);
+
+            let y = 82;
+
+            cart.forEach(item => {
+
+                const subtotal = item.price * item.qty;
+
+                doc.text(`${item.qty}x ${item.name}`, 20, y);
+                doc.text(`${subtotal.toLocaleString()} Kz`, 150, y);
+
+                y += 10;
+            });
+
+            doc.line(20, y, 190, y);
+
+            doc.setFontSize(16);
+            doc.text(`TOTAL: ${total.toLocaleString()} Kz`, 20, y + 15);
+
+            doc.save(`Pedido_${nome.replace(/\s+/g,'_')}.pdf`);
+
+            let message = `*NOVO PEDIDO - KAMBA DA OBRA*%0A%0A`;
+            message += `👤 Cliente: ${nome}%0A`;
+            message += `📍 Entrega: ${local}%0A`;
+            message += `📅 Data Prevista: ${data}%0A%0A`;
+
+            cart.forEach(item => {
+                message += `• ${item.qty}x ${item.name}%0A`;
+            });
+
+            message += `%0A💰 *TOTAL:* ${total.toLocaleString()} Kz`;
+
+            window.open(`https://wa.me/${MY_PHONE}?text=${message}`, '_blank');
         }
 
-        // Inicialização
-        function init() {
-            // Renderiza produtos e estado do carrinho
-            console.log("Sistema Kamba Online");
-        }
-        init();
+
+        // INIT
+        renderBanner();
+        renderProducts();
+        updateCartUI();
+
     </script>
+
 </body>
 </html>
