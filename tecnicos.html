@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦸 Encontra um Técnico Kamba</title>
+    <style>
+        :root { --kamba-pink: #FF69B4; --kamba-gold: #FFD700; --kamba-dark: #2C3E50; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; color: var(--kamba-dark); }
+        header { background: var(--kamba-dark); color: white; padding: 20px; text-align: center; }
+        nav { background: #34495e; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 20px; }
+        nav a.active { background: var(--kamba-pink); }
+        
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
+        
+        .filters { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 10px; }
+        .filter-btn { background: white; border: 2px solid #ddd; padding: 10px 20px; border-radius: 30px; cursor: pointer; white-space: nowrap; font-weight: bold; }
+        .filter-btn.active { background: var(--kamba-pink); color: white; border-color: var(--kamba-pink); }
+
+        .tech-card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--kamba-gold); transition: 0.3s; }
+        .tech-card:hover { transform: translateX(5px); }
+        
+        .avatar { width: 80px; height: 80px; border-radius: 50%; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 2em; flex-shrink: 0; }
+        .info { flex: 1; }
+        .name { font-size: 1.4em; font-weight: bold; margin: 0; }
+        .spec { color: #7f8c8d; font-size: 0.9em; }
+        .rating { color: var(--kamba-gold); font-weight: bold; }
+        .badge-tech { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; color: white; margin-top: 5px; }
+        .green { background: #27ae60; } /* Excelência */
+        .blue { background: #2980b9; } /* Confiável */
+        
+        .actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+        .btn-call { background: var(--kamba-dark); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; text-align: center; }
+        .btn-wa { background: #25D366; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; text-align: center; }
+        
+        .price-tag { font-size: 1.2em; font-weight: bold; color: var(--kamba-pink); margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🦸 ENCONTRA UM TÉCNICO KAMBA 🛠️</h1>
+    <p>Não arrisques com amadores. Chama os CERTIFICADOS! 👑</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="servicos.html">🔧 Serviços</a>
+    <a href="tecnicos.html" class="active">🦸 Técnicos</a>
+    <a href="fornecedores.html">🏭 Fornecedores</a>
+</nav>
+
+<div class="container">
+    <h2 style="text-align:center; margin-top:20px;">Quem precisas hoje, Chefia? 👇</h2>
+    
+    <!-- FILTROS -->
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterTech('all')">🔥 Todos</button>
+        <button class="filter-btn" onclick="filterTech('tv')">📺 TV / Video</button>
+        <button class="filter-btn" onclick="filterTech('ac')">❄️ Ar Condicionado</button>
+        <button class="filter-btn" onclick="filterTech('eletrica')">⚡ Eléctrica</button>
+        <button class="filter-btn" onclick="filterTech('civil')">🏗️ Civil</button>
+        <button class="filter-btn" onclick="filterTech('canalizacao')">🚰 Canalização</button>
+    </div>
+
+    <!-- LISTA DE TÉCNICOS (DADOS REAIS SIMULADOS) -->
+    
+    <!-- TÉCNICO 1: TV (O Hero) -->
+    <div class="tech-card" data-cat="tv">
+        <div class="avatar" style="background:#FF69B4;">📺</div>
+        <div class="info">
+            <h3 class="name">João Silva 🏆</h3>
+            <div class="spec">Samsung Certified | 📺 TV & Monitores</div>
+            <div class="rating">⭐ 4.9 (12 Avaliações) | 📍 Luanda | ⏰ 30 min</div>
+            <span class="badge-tech green">EXCELÊNCIA</span>
+            <div class="price-tag">5.000 - 15.000 Kz 💰</div>
+        </div>
+        <div class="actions">
+            <a href="tel:+244900000000" class="btn-call">📞 Ligar</a>
+            <a href="https://wa.me/244900000000" class="btn-wa">💬 WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- TÉCNICO 2: AC -->
+    <div class="tech-card" data-cat="ac">
+        <div class="avatar" style="background:#2980b9;">❄️</div>
+        <div class="info">
+            <h3 class="name">Maria Santos ✅</h3>
+            <div class="spec">LG Certified | ❄️ Ar Condicionado</div>
+            <div class="rating">⭐ 4.7 (8 Avaliações) | 📍 Luanda | ⏰ 45 min</div>
+            <span class="badge-tech blue">CONFIÁVEL</span>
+            <div class="price-tag">4.500 - 12.000 Kz 💰</div>
+        </div>
+        <div class="actions">
+            <a href="tel:+244911111111" class="btn-call">📞 Ligar</a>
+            <a href="https://wa.me/244911111111" class="btn-wa">💬 WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- TÉCNICO 3: ELÉCTRICA -->
+    <div class="tech-card" data-cat="eletrica">
+        <div class="avatar" style="background:#f1c40f;">⚡</div>
+        <div class="info">
+            <h3 class="name">Pedro António ⚠️</h3>
+            <div class="spec">Electrotécnico Geral | ⚡ Instalações</div>
+            <div class="rating">⭐ 4.5 (5 Avaliações) | 📍 Viana | ⏰ 1h</div>
+            <span class="badge-tech blue">CONFIÁVEL</span>
+            <div class="price-tag">4.000 - 10.000 Kz 💰</div>
+        </div>
+        <div class="actions">
+            <a href="tel:+244922222222" class="btn-call">📞 Ligar</a>
+            <a href="https://wa.me/244922222222" class="btn-wa">💬 WhatsApp</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Lógica simples de filtro
+    function filterTech(cat) {
+        const cards = document.querySelectorAll('.tech-card');
+        const btns = document.querySelectorAll('.filter-btn');
+        btns.forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+
+        cards.forEach(card => {
+            if(cat === 'all' || card.dataset.cat === cat) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

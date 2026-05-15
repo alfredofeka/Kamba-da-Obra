@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Serviços Kamba da Obra</title>
+    <style>
+        :root { --kamba-pink: #FF69B4; --kamba-gold: #FFD700; --kamba-dark: #2C3E50; --kamba-light: #ECF0F1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--kamba-light); color: var(--kamba-dark); }
+        header { background: var(--kamba-dark); color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        header h1 { font-size: 1.8em; }
+        .tagline { color: var(--kamba-gold); font-weight: bold; }
+        nav { background: #34495e; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; transition: 0.3s; }
+        nav a:hover, nav a.active { background: var(--kamba-pink); }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2em; margin: 40px 0 20px; color: var(--kamba-dark); border-bottom: 3px solid var(--kamba-pink); display: inline-block; padding-bottom: 10px; }
+        .center { text-align: center; display: block; }
+        
+        /* SERVICE GRID */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+        .service-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        .service-icon { background: linear-gradient(135deg, var(--kamba-pink), var(--kamba-gold)); padding: 30px; text-align: center; font-size: 4em; }
+        .service-body { padding: 25px; }
+        .service-body h3 { font-size: 1.4em; margin-bottom: 10px; }
+        .service-body p { color: #7f8c8d; line-height: 1.6; margin-bottom: 15px; }
+        .service-body ul { list-style: none; padding: 0; }
+        .service-body ul li { padding: 5px 0; color: #555; }
+        .service-body ul li::before { content: "✅ "; }
+        .btn-service { display: block; background: var(--kamba-dark); color: var(--kamba-gold); padding: 12px; border-radius: 12px; text-align: center; text-decoration: none; font-weight: bold; margin-top: 15px; transition: 0.3s; }
+        .btn-service:hover { background: var(--kamba-pink); color: white; }
+
+        .elevator-box { background: linear-gradient(135deg, #2C3E50, #3498db); color: white; border-radius: 20px; padding: 40px; margin: 40px 0; text-align: center; }
+        .elevator-box h2 { font-size: 2em; margin-bottom: 15px; }
+        .elevator-box p { font-size: 1.2em; max-width: 700px; margin: 0 auto 20px; }
+        .elevator-features { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .elevator-feature { background: rgba(255,255,255,0.15); padding: 20px 30px; border-radius: 15px; backdrop-filter: blur(10px); }
+        .elevator-feature span { font-size: 2em; display: block; margin-bottom: 10px; }
+
+        footer { background: var(--kamba-dark); color: white; text-align: center; padding: 20px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🔧 KAMBA SERVIÇOS 🛠️</h1>
+    <p class="tagline">Não vendemos só materiais... RESOLVEMOS PROBLEMAS! 👑</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="fornecedores.html">🏭 Fornecedores</a>
+    <a href="servicos.html" class="active">🔧 Serviços</a>
+    <a href="tecnicos.html">🦸 Técnicos</a>
+    <a href="contactos.html">📞 Contactos</a>
+</nav>
+
+<div class="container">
+    <h2 class="section-title center">🛠️ OS NOSSOS SERVIÇOS 🛠️</h2>
+    <p style="text-align:center; max-width:700px; margin:0 auto 30px; color:#555;">
+        A Kamba não é só tijolo e cimento. A Kamba tem <strong>BRAÇOS</strong> que trabalham para ti! 💪
+    </p>
+
+    <div class="service-grid">
+        
+        <!-- 🏗️ CONSTRUÇÃO CIVIL -->
+        <div class="service-card">
+            <div class="service-icon">🏗️</div>
+            <div class="service-body">
+                <h3>Construção Civil</h3>
+                <p>Do alicerce ao telhado. A Kamba tem os melhores pedreiros, pintores e carpinteiros de Luanda!</p>
+                <ul>
+                    <li>Pedreiro / Assentador de tijolo</li>
+                    <li>Pintor Profissional</li>
+                    <li>Carpinteiro / Marceneiro</li>
+                    <li>Serralheiro / Soldador</li>
+                    <li>Canalizador</li>
+                </ul>
+                <a href="tecnicos.html" class="btn-service">🦸 ENCONTRAR PROFISSIONAL</a>
+            </div>
+        </div>
+
+        <!-- 🛗 ELEVADORES -->
+        <div class="service-card">
+            <div class="service-icon">🛗</div>
+            <div class="service-body">
+                <h3>Elevadores</h3>
+                <p>Venda, instalação e manutenção de elevadores. Segurança e conforto para o teu prédio!</p>
+                <ul>
+                    <li>Venda de elevadores novos</li>
+                    <li>Instalação certificada</li>
+                    <li>Manutenção preventiva</li>
+                    <li>Reparação de emergência 24h</li>
+                </ul>
+                <a href="tecnicos.html" class="btn-service">🛗 VER ELEVADORES</a>
+            </div>
+        </div>
+
+        <!-- ❄️ AR CONDICIONADO -->
+        <div class="service-card">
+            <div class="service-icon">❄️</div>
+            <div class="service-body">
+                <h3>Ar Condicionado</h3>
+                <p>Está um forno aí? A Kamba manda o técnico certificado em 30 minutos!</p>
+                <ul>
+                    <li>Instalação de AC Split</li>
+                    <li>Limpeza e higienização</li>
+                    <li>Reparação de fugas</li>
+                    <li>Carga de gás</li>
+                </ul>
+                <a href="tecnicos.html" class="btn-service">❄️ CHAMAR TÉCNICO AC</a>
+            </div>
+        </div>
+
+        <!-- ⚡ ELÉCTRICA -->
+        <div class="service-card">
+            <div class="service-icon">⚡</div>
+            <div class="service-body">
+                <h3>Eléctrica</h3>
+                <p>Curto-circuito? Falta de luz? A Kamba tem electricista certificado 24h!</p>
+                <ul>
+                    <li>Instalação eléctrica</li>
+                    <li>Reparação de quadros</li>
+                    <li>Iluminação LED</li>
+                    <li>Geradores</li>
+                </ul>
+                <a href="tecnicos.html" class="btn-service">⚡ CHAMAR ELECTRICISTA</a>
+            </div>
+        </div>
+
+        <!-- 🚰 CANALIZAÇÃO -->
+        <div class="service-card">
+            <div class="service-icon">🚰</div>
+            <div class="service-body">
+                <h3>Canalização</h3>
+                <p>Torneira a pingar? Esgoto entupido? Resolvemos em minutos!</p>
+                <ul>
+                    <li>Desentupimentos</li>
+                    <li>Reparação de torneiras</li>
+                    <li>Instalação de sanitas</li>
+                    <li>Fugas de água</li>
+                </ul>
+                <a href="tecnicos.html" class="btn-service">🚰 CHAMAR CANALIZADOR</a>
+            </div>
+        </div>
+
+        <!-- 🔩 SERRALHARIA -->
+        <div class="service-card">
+            <div class="service-icon">🔩</div>
+            <div class="service-body">
+                <h3>Serralharia</h3>
+                <p>Portões, grades, soldadura. Segurança para a tua casa com os melhores!</p>
+                <ul>
+                    <li>Portões automáticos</li>
+                    <li>Grades de segurança</li>
+                    <li>Soldadura industrial</li>
+                    <li>Estruturas metálicas</li>
+                </ul>
+                <a href="tecnicos.html" class="btn-service">🔩 CHAMAR SERRALHEIRO</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 🛗 ELEVADORES - DESTAQUE ESPECIAL -->
+    <div class="elevator-box">
+        <h2>🛗 ELEVADORES KAMBA 🛗</h2>
+        <p>Venda + Instalação + Manutenção. Tudo num só lugar. Porque o teu prédio merece o MELHOR! 👑</p>
+        <div class="elevator-features">
+            <div class="elevator-feature">
+                <span>🏭</span>
+                <strong>Venda</strong><br>Marcas top mundial
+            </div>
+            <div class="elevator-feature">
+                <span>🔧</span>
+                <strong>Instalação</strong><br>Equipa certificada
+            </div>
+            <div class="elevator-feature">
+                <span>🛡️</span>
+                <strong>Manutenção</strong><br>24h / 7 dias
+            </div>
+            <div class="elevator-feature">
+                <span>🚨</span>
+                <strong>Emergência</strong><br>30 min no local
+            </div>
+        </div>
+        <br>
+        <a href="tecnicos.html" class="btn-service" style="display:inline-block; padding:15px 40px; font-size:1.1em;">🛗 PEDIR ORÇAMENTO</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>👑 Kamba da Obra © 2025 — O Teu Império de Materiais e Serviços 🚀</p>
+    <p>Feito com ❤️ em Angola 🇦🇴</p>
+</footer>
+
+</body>
+</html>

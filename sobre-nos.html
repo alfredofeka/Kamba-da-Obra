@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👤 Sobre Nós — Kamba da Obra</title>
+    <style>
+        :root { --kamba-pink: #FF69B4; --kamba-gold: #FFD700; --kamba-dark: #2C3E50; --kamba-light: #ECF0F1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--kamba-light); color: var(--kamba-dark); }
+        header { background: var(--kamba-dark); color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        header h1 { font-size: 1.8em; }
+        .tagline { color: var(--kamba-gold); font-weight: bold; }
+        nav { background: #34495e; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; transition: 0.3s; }
+        nav a:hover, nav a.active { background: var(--kamba-pink); }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .hero-about { background: linear-gradient(135deg, var(--kamba-pink), var(--kamba-gold)); color: white; border-radius: 25px; padding: 50px; text-align: center; margin: 30px 0; }
+        .hero-about h2 { font-size: 2.5em; margin-bottom: 15px; }
+        .hero-about p { font-size: 1.2em; max-width: 600px; margin: 0 auto; }
+        .values { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
+        .value-card { background: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .value-card span { font-size: 3em; display: block; margin-bottom: 15px; }
+        .value-card h3 { margin-bottom: 10px; }
+        .timeline { background: white; border-radius: 20px; padding: 40px; margin: 40px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .timeline h3 { text-align: center; margin-bottom: 30px; font-size: 1.5em; }
+        .tl-item { display: flex; gap: 20px; margin-bottom: 25px; align-items: flex-start; }
+        .tl-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--kamba-pink); flex-shrink: 0; margin-top: 5px; }
+        .tl-content h4 { margin-bottom: 5px; }
+        .tl-content p { color: #7f8c8d; font-size: 0.9em; }
+        footer { background: var(--kamba-dark); color: white; text-align: center; padding: 20px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>👤 QUEM É A KAMBA? 👑</h1>
+    <p class="tagline">Não somos só uma loja... Somos um MOVIMENTO! 🚀</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="fornecedores.html">🏭 Fornecedores</a>
+    <a href="servicos.html">🔧 Serviços</a>
+    <a href="tecnicos.html">🦸 Técnicos</a>
+    <a href="sobre-nos.html" class="active">👤 Sobre Nós</a>
+</nav>
+
+<div class="container">
+
+    <div class="hero-about">
+        <h2>👑 A KAMBA DA OBRA 👑</h2>
+        <p>Nascemos em Angola para revolucionar a forma como compras materiais e contratas serviços. <strong>ISTO NÃO É UMA LOJA... ISTO É UM IMPÉRIO!</strong> 🔥</p>
+    </div>
+
+    <h2 class="section-title center" style="display:block;">💡 OS NOSSOS VALORES</h2>
+    <div class="values">
+        <div class="value-card">
+            <span>🏆</span>
+            <h3>Qualidade</h3>
+            <p>Só o melhor entra no Império Kamba.</p>
+        </div>
+        <div class="value-card">
+            <span>🛡️</span>
+            <h3>Confiança</h3>
+            <p>Tudo verificado. Tudo certificado.</p>
+        </div>
+        <div class="value-card">
+            <span>⚡</span>
+            <h3>Rapidez</h3>
+            <p>Técnico em 30 min? Na Kamba sim!</p>
+        </div>
+        <div class="value-card">
+            <span>❤️</span>
+            <h3>Angola</h3>
+            <p>Feito por angolanos, para angolanos.</p>
+        </div>
+    </div>
+
+    <div class="timeline">
+        <h3>📅 A NOSSA HISTÓRIA</h3>
+        <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+                <h4>🚀 2024 — O Início</h4>
+                <p>A Kamba nasce como loja de materiais de construção em Luanda. Fornecedores verificados, preços justos.</p>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+                <h4>🦸 2025 — A Revolução</h4>
+                <p>"IRMÃO, ISTO NÃO É UMA LOJA... ISTO É UM IMPÉRIO!" Nasce o sistema de TÉCNICOS CERTIFICADOS. A Kamba passa a resolver PROBLEMAS, não só vender parafusos!</p>
+            </div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+                <h4>🌍 2025+ — O Futuro</h4>
+                <p>Play Store, PWA, Firebase, IA... A Kamba não para. O império cresce todos os dias! 👑🧠💰</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin:40px 0; padding:30px; background:white; border-radius:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="font-size:1.5em; margin-bottom:10px;">👑 Queres fazer parte do Império?</h3>
+        <p style="color:#555; margin-bottom:20px;">Seja Fornecedor, Técnico ou Parceiro. A Kamba abre as portas a todos! 🚀</p>
+        <a href="contactos.html" class="btn-submit" style="display:inline-block; text-decoration:none; padding:15px 40px;">📞 FALA CONNOSCO</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>👑 Kamba da Obra © 2025 — O Teu Império de Materiais e Serviços 🚀</p>
+    <p>Feito com ❤️ em Angola 🇦🇴</p>
+</footer>
+
+</body>
+</html>

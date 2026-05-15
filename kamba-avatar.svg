@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100" height="100">
+  <!-- Corpo -->
+  <ellipse cx="100" cy="120" rx="50" ry="60" fill="#FF69B4"/>
+  
+  <!-- Cabeça -->
+  <circle cx="100" cy="70" r="45" fill="#FF69B4"/>
+  
+  <!-- Olhos -->
+  <circle cx="82" cy="60" r="8" fill="white"/>
+  <circle cx="118" cy="60" r="8" fill="white"/>
+  <circle cx="84" cy="60" r="4" fill="#2C3E50"/>
+  <circle cx="120" cy="60" r="4" fill="#2C3E50"/>
+  
+  <!-- Brilho nos olhos -->
+  <circle cx="86" cy="58" r="1.5" fill="white"/>
+  <circle cx="122" cy="58" r="1.5" fill="white"/>
+  
+  <!-- Sobrancelhas -->
+  <path d="M72 48 Q82 42 92 48" stroke="#2C3E50" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M108 48 Q118 42 128 48" stroke="#2C3E50" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Boca (sorriso) -->
+  <path d="M85 82 Q100 98 115 82" stroke="#2C3E50" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Bochechas -->
+  <circle cx="70" cy="75" r="8" fill="#FF1493" opacity="0.3"/>
+  <circle cx="130" cy="75" r="8" fill="#FF1493" opacity="0.3"/>
+  
+  <!-- Coroa -->
+  <polygon points="60,35 70,10 80,30 90,5 100,28 110,5 120,30 130,10 140,35" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+  <circle cx="70" cy="10" r="3" fill="#FF69B4"/>
+  <circle cx="100" cy="5" r="3" fill="#FF69B4"/>
+  <circle cx="130" cy="10" r="3" fill="#FF69B4"/>
+  
+  <!-- Braços -->
+  <ellipse cx="50" cy="110" rx="15" ry="30" fill="#FF69B4" transform="rotate(-15 50 110)"/>
+  <ellipse cx="150" cy="110" rx="15" ry="30" fill="#FF69B4" transform="rotate(15 150 110)"/>
+  
+  <!-- Mãos (a acenar) -->
+  <circle cx="40" cy="90" r="10" fill="#FF69B4"/>
+  <circle cx="160" cy="90" r="10" fill="#FF69B4"/>
+  
+  <!-- Pés -->
+  <ellipse cx="80" cy="178" rx="18" ry="10" fill="#FF1493"/>
+  <ellipse cx="120" cy="178" rx="18" ry="10" fill="#FF1493"/>
+</svg>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📞 Contactos Kamba da Obra</title>
+    <style>
+        :root { --kamba-pink: #FF69B4; --kamba-gold: #FFD700; --kamba-dark: #2C3E50; --kamba-light: #ECF0F1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--kamba-light); color: var(--kamba-dark); }
+        header { background: var(--kamba-dark); color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        header h1 { font-size: 1.8em; }
+        .tagline { color: var(--kamba-gold); font-weight: bold; }
+        nav { background: #34495e; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; transition: 0.3s; }
+        nav a:hover, nav a.active { background: var(--kamba-pink); }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2em; margin: 40px 0 20px; color: var(--kamba-dark); border-bottom: 3px solid var(--kamba-pink); display: inline-block; padding-bottom: 10px; }
+        .center { text-align: center; display: block; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; }
+        .contact-card { background: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; }
+        .contact-card:hover { transform: translateY(-5px); }
+        .contact-icon { font-size: 3em; margin-bottom: 15px; }
+        .contact-card h3 { margin-bottom: 10px; }
+        .contact-card a { color: var(--kamba-pink); text-decoration: none; font-weight: bold; font-size: 1.1em; }
+        .contact-card a:hover { color: var(--kamba-dark); }
+
+        .form-box { background: white; border-radius: 20px; padding: 40px; margin-top: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 12px; font-size: 1em; font-family: inherit; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--kamba-pink); outline: none; }
+        .btn-submit { background: var(--kamba-dark); color: var(--kamba-gold); padding: 15px 40px; border: none; border-radius: 12px; font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-submit:hover { background: var(--kamba-pink); color: white; }
+
+        footer { background: var(--kamba-dark); color: white; text-align: center; padding: 20px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📞 CONTACTOS KAMBA 📞</h1>
+    <p class="tagline">Estamos SEMPRE aqui para ti, Chefia! 👑</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="fornecedores.html">🏭 Fornecedores</a>
+    <a href="servicos.html">🔧 Serviços</a>
+    <a href="tecnicos.html">🦸 Técnicos</a>
+    <a href="contactos.html" class="active">📞 Contactos</a>
+</nav>
+
+<div class="container">
+    <h2 class="section-title center">📞 FALA COM A KAMBA 📞</h2>
+
+    <div class="contact-grid">
+        <div class="contact-card">
+            <div class="contact-icon">📱</div>
+            <h3>WhatsApp</h3>
+            <p>Resposta em minutos!</p>
+            <a href="https://wa.me/244900000000" target="_blank">💬 +244 900 000 000</a>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Telefone</h3>
+            <p>Liga a qualquer hora!</p>
+            <a href="tel:+244900000000">📞 +244 900 000 000</a>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>Para assuntos sérios!</p>
+            <a href="mailto:info@kambadaobra.ao">📧 info@kambadaobra.ao</a>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Morada</h3>
+            <p>Vem conhecer-nos!</p>
+            <p>Luanda, Angola 🇦🇴</p>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <h3 style="text-align:center; margin-bottom:25px; font-size:1.5em;">📝 Manda a tua Mensagem</h3>
+        <form onsubmit="event.preventDefault(); alert('👑 KAMBA: Mensagem recebida, Chefia! Respondemos em breve! 🚀');">
+            <div class="form-group">
+                <label>👤 O teu Nome</label>
+                <input type="text" placeholder="Ex: João Silva" required>
+            </div>
+            <div class="form-group">
+                <label>📧 Email ou Telefone</label>
+                <input type="text" placeholder="Ex: joao@email.com ou +244 9XX XXX XXX" required>
+            </div>
+            <div class="form-group">
+                <label>📋 Assunto</label>
+                <select required>
+                    <option value="">Escolhe um...</option>
+                    <option>🛒 Compra de Material</option>
+                    <option>🦸 Preciso de Técnico</option>
+                    <option>🏭 Quero ser Fornecedor</option>
+                    <option>🚨 Denúncia</option>
+                    <option>💡 Sugestão</option>
+                    <option>📋 Outro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>💬 Mensagem</label>
+                <textarea rows="4" placeholder="Diz-me tudo, Chefia! 👇" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">📨 ENVIAR MENSAGEM 🚀</button>
+        </form>
+    </div>
+
+</div>
+
+<footer>
+    <p>👑 Kamba da Obra © 2025 — O Teu Império de Materiais e Serviços 🚀</p>
+    <p>Feito com ❤️ em Angola 🇦🇴</p>
+</footer>
+
+</body>
+</html>

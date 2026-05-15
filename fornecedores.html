@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏭 Fornecedores Kamba da Obra</title>
+    <style>
+        :root { --kamba-pink: #FF69B4; --kamba-gold: #FFD700; --kamba-dark: #2C3E50; --kamba-light: #ECF0F1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--kamba-light); color: var(--kamba-dark); }
+        header { background: var(--kamba-dark); color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        header h1 { font-size: 1.8em; }
+        .tagline { color: var(--kamba-gold); font-weight: bold; }
+        nav { background: #34495e; padding: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; transition: 0.3s; }
+        nav a:hover, nav a.active { background: var(--kamba-pink); }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 2em; margin: 40px 0 20px; color: var(--kamba-dark); border-bottom: 3px solid var(--kamba-pink); display: inline-block; padding-bottom: 10px; }
+        .center { text-align: center; display: block; }
+
+        /* RANKING */
+        .ranking { list-style: none; padding: 0; }
+        .ranking-item { background: white; border-radius: 20px; padding: 25px; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; border-left: 8px solid #ddd; }
+        .ranking-item:hover { transform: translateX(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .rank-num { font-size: 2.5em; font-weight: 900; color: var(--kamba-dark); min-width: 60px; text-align: center; }
+        .rank-num.gold { color: var(--kamba-gold); text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+        .rank-num.silver { color: #C0C0C0; }
+        .rank-num.bronze { color: #CD7F32; }
+        .supplier-logo { width: 80px; height: 80px; border-radius: 15px; background: linear-gradient(135deg, var(--kamba-pink), var(--kamba-gold)); display: flex; align-items: center; justify-content: center; font-size: 2em; flex-shrink: 0; }
+        .supplier-info { flex: 1; }
+        .supplier-name { font-size: 1.3em; font-weight: bold; margin-bottom: 5px; }
+        .supplier-cert { color: #27ae60; font-weight: bold; font-size: 0.9em; }
+        .supplier-cert::before { content: "📜 "; }
+        .rating-bar { display: flex; gap: 5px; margin: 8px 0; }
+        .star { color: var(--kamba-gold); font-size: 1.2em; }
+        .star.empty { color: #ddd; }
+        .supplier-meta { display: flex; gap: 15px; flex-wrap: wrap; font-size: 0.85em; color: #7f8c8d; }
+        .badge-supplier { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85em; color: white; }
+        .badge-excel { background: #27ae60; }
+        .badge-conf { background: #2980b9; }
+        .badge-reg { background: #f39c12; }
+        .badge-bad { background: #e74c3c; }
+        .btn-supplier { background: var(--kamba-dark); color: var(--kamba-gold); padding: 10px 25px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-supplier:hover { background: var(--kamba-pink); color: white; }
+
+        footer { background: var(--kamba-dark); color: white; text-align: center; padding: 20px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🏭 FORNECEDORES KAMBA 🏭</h1>
+    <p class="tagline">Só os MELHORES entram no Império! 👑🏆</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="fornecedores.html" class="active">🏭 Fornecedores</a>
+    <a href="servicos.html">🔧 Serviços</a>
+    <a href="tecnicos.html">🦸 Técnicos</a>
+    <a href="contactos.html">📞 Contactos</a>
+</nav>
+
+<div class="container">
+    <h2 class="section-title center">🏆 TOP FORNECEDORES VERIFICADOS 🏆</h2>
+    <p style="text-align:center; max-width:700px; margin:0 auto 30px; color:#555;">
+        Cada fornecedor foi <strong>INSPECIONADO</strong> pela Kamba. Sem qualidade, não entra! ✅
+    </p>
+
+    <ul class="ranking">
+
+        <!-- 🥇 #1 -->
+        <li class="ranking-item" style="border-left-color: var(--kamba-gold);">
+            <div class="rank-num gold">1</div>
+            <div class="supplier-logo">🏗️</div>
+            <div class="supplier-info">
+                <div class="supplier-name">NOVA ERA Lda</div>
+                <div class="supplier-cert">ISO 9001 | CE Certified</div>
+                <div class="rating-bar">
+                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                </div>
+                <div class="supplier-meta">
+                    <span>📍 Luanda</span>
+                    <span>📦 500+ Produtos</span>
+                    <span>👥 1.200 Avaliações</span>
+                </div>
+                <span class="badge-supplier badge-excel">🏆 EXCELÊNCIA</span>
+            </div>
+            <a href="#" class="btn-supplier">VER PRODUTOS →</a>
+        </li>
+
+        <!-- 🥈 #2 -->
+        <li class="ranking-item" style="border-left-color: #C0C0C0;">
+            <div class="rank-num silver">2</div>
+            <div class="supplier-logo">🎨</div>
+            <div class="supplier-info">
+                <div class="supplier-name">Tintas Premium AO</div>
+                <div class="supplier-cert">ISO 14001</div>
+                <div class="rating-bar">
+                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star empty">⭐</span>
+                </div>
+                <div class="supplier-meta">
+                    <span>📍 Luanda</span>
+                    <span>📦 200+ Produtos</span>
+                    <span>👥 800 Avaliações</span>
+                </div>
+                <span class="badge-supplier badge-conf">✅ CONFIÁVEL</span>
+            </div>
+            <a href="#" class="btn-supplier">VER PRODUTOS →</a>
+        </li>
+
+        <!-- 🥉 #3 -->
+        <li class="ranking-item" style="border-left-color: #CD7F32;">
+            <div class="rank-num bronze">3</div>
+            <div class="supplier-logo">⚡</div>
+            <div class="supplier-info">
+                <div class="supplier-name">ElectroMax Angola</div>
+                <div class="supplier-cert">ISO 9001</div>
+                <div class="rating-bar">
+                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star empty">⭐</span>
+                </div>
+                <div class="supplier-meta">
+                    <span>📍 Benguela</span>
+                    <span>📦 350+ Produtos</span>
+                    <span>👥 600 Avaliações</span>
+                </div>
+                <span class="badge-supplier badge-conf">✅ CONFIÁVEL</span>
+            </div>
+            <a href="#" class="btn-supplier">VER PRODUTOS →</a>
+        </li>
+
+        <!-- #4 -->
+        <li class="ranking-item">
+            <div class="rank-num">4</div>
+            <div class="supplier-logo">🪵</div>
+            <div class="supplier-info">
+                <div class="supplier-name">MadeiraForte Lda</div>
+                <div class="supplier-cert">FSC Certified</div>
+                <div class="rating-bar">
+                    <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star empty">⭐</span><span class="star empty">⭐</span>
+                </div>
+                <div class="supplier-meta">
+                    <span>📍 Huambo</span>
+                    <span>📦 150+ Produtos</span>
+                    <span>👥 400 Avaliações</span>
+                </div>
+                <span class="badge-supplier badge-reg">⚠️ REGULAR</span>
+            </div>
+            <a href="#" class="btn-supplier">VER PRODUTOS →</a>
+        </li>
+
+        <!-- #5 -->
+        <li class="ranking-item">
+            <div class="rank-num">5</div>
+            <div class="supplier-logo">🔩</div>
+            <div class="supplier-info">
+                <div class="supplier-name">Ferro & Aço AO</div>
+                <div class="supplier-cert">Sem certificação</div>
+                <div class="rating-bar">
+                    <span class="star">⭐</span><span class="star">⭐</span><span class="star empty">⭐</span><span class="star empty">⭐</span><span class="star empty">⭐</span>
+                </div>
+                <div class="supplier-meta">
+                    <span>📍 Lubango</span>
+                    <span>📦 80+ Produtos</span>
+                    <span>👥 150 Avaliações</span>
+                </div>
+                <span class="badge-supplier badge-bad">❌ NÃO RECOMENDADO</span>
+            </div>
+            <a href="#" class="btn-supplier">VER PRODUTOS →</a>
+        </li>
+
+    </ul>
+
+    <div style="text-align:center; margin:40px 0; padding:30px; background:white; border-radius:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="font-size:1.5em; margin-bottom:10px;">🏭 Queres SER um Fornecedor Kamba?</h3>
+        <p style="color:#555; margin-bottom:20px;">Inspeccionamos, verificamos e colocamos-te no ranking! 🏆</p>
+        <a href="admin.html" class="btn-supplier" style="display:inline-block;">📋 CANDIDATAR-ME</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>👑 Kamba da Obra © 2025 — O Teu Império de Materiais e Serviços 🚀</p>
+    <p>Feito com ❤️ em Angola 🇦🇴</p>
+</footer>
+
+</body>
+</html>
